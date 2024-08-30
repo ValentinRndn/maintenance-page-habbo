@@ -1,27 +1,161 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Maintenance page Habbo</title>
-    <link rel="stylesheet" href="./style/style.css">
-</head>
-<body>
-    <div class="header">
-        <!-- <img src="./assets/header.webp" alt="image-header"> -->
-    </div>
-    <div id="socials">
-        <a href="https://discord.gg/X4BZ4jFY" target="_blank">
-<img src="./assets//logo-discord.png" alt="logo-discord">        </a>
-    </div>
+    <link rel="stylesheet" href="./style/style.css" />
+  </head>
+  <body>
+    <div id="particles-js"></div>
+
+    <div class="header"></div>
+    <button id="open-popup" aria-label="Ouvrir la popup de connexion staff">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        id="login"
+        width="36"
+        height="36"
+        viewBox="0 0 24 24"
+      >
+        <g
+          fill="none"
+          stroke="#888888"
+          stroke-linecap="round"
+          stroke-width="1.5"
+        >
+          <path
+            stroke-linejoin="round"
+            d="M2.001 11.999h14m0 0l-3.5-3m3.5 3l-3.5 3"
+          />
+          <path
+            d="M9.002 7c.012-2.175.109-3.353.877-4.121C10.758 2 12.172 2 15 2h1c2.829 0 4.243 0 5.122.879C22 3.757 22 5.172 22 8v8c0 2.828 0 4.243-.878 5.121c-.769.769-1.947.865-4.122.877M9.002 17c.012 2.175.109 3.353.877 4.121c.641.642 1.568.815 3.121.862"
+          />
+        </g>
+      </svg>
+    </button>
+
+    <!-- 
+    <div class="popup-overlay" id="popup-overlay"></div> -->
+
+    <!-- <div class="popup" id="popup">
+        <button class="close" id="close-popup">&times;</button>
+        <h2>Accès Staff</h2>
+        <form id="staff-login-form" action="/staff-login" method="post">
+            <div class="info">
+            <label for="username">Nom d'utilisateur :</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="info">
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+            <button type="submit">Se connecter</button>
+        </form>
+    </div> -->
+
     <div id="container">
-        <img id="logo-habbo" src="./assets/habbo-logo.png" alt="habbo-logo">
-        <h1>MAINTENANCE</h1>
-        <p>Le site est actuellement en maintenance, veuillez revenir plus tard.</p>
+      <img id="logo-habbvibe" src="./assets/habbvibe.gif" alt="habbo-logo" />
+      <h1>MAINTENANCE</h1>
+      <p>
+        Le site est actuellement en maintenance, veuillez revenir plus tard.
+      </p>
     </div>
 
     <div class="footer">
-
+      <div class="socials-footer">
+        <ul>
+          <li>
+            <a href="https://www.facebook.com/habbo" target="_blank">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="#888888"
+                  d="M12.001 9a3 3 0 1 0 0 6a3 3 0 0 0 0-6m0-2a5 5 0 1 1 0 10a5 5 0 0 1 0-10m6.5-.25a1.25 1.25 0 0 1-2.5 0a1.25 1.25 0 0 1 2.5 0M12.001 4c-2.474 0-2.878.007-4.029.058c-.784.037-1.31.142-1.798.332a2.9 2.9 0 0 0-1.08.703a2.9 2.9 0 0 0-.704 1.08c-.19.49-.295 1.015-.331 1.798C4.007 9.075 4 9.461 4 12c0 2.475.007 2.878.058 4.029c.037.783.142 1.31.331 1.797c.17.435.37.748.702 1.08c.337.336.65.537 1.08.703c.494.191 1.02.297 1.8.333C9.075 19.994 9.461 20 12 20c2.475 0 2.878-.007 4.029-.058c.782-.037 1.308-.142 1.797-.331a2.9 2.9 0 0 0 1.08-.703c.337-.336.538-.649.704-1.08c.19-.492.296-1.018.332-1.8c.052-1.103.058-1.49.058-4.028c0-2.474-.007-2.878-.058-4.029c-.037-.782-.143-1.31-.332-1.798a2.9 2.9 0 0 0-.703-1.08a2.9 2.9 0 0 0-1.08-.704c-.49-.19-1.016-.295-1.798-.331C14.926 4.006 14.54 4 12 4m0-2c2.717 0 3.056.01 4.123.06c1.064.05 1.79.217 2.427.465c.66.254 1.216.598 1.772 1.153a4.9 4.9 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428c.047 1.066.06 1.405.06 4.122s-.01 3.056-.06 4.122s-.218 1.79-.465 2.428a4.9 4.9 0 0 1-1.153 1.772a4.9 4.9 0 0 1-1.772 1.153c-.637.247-1.363.415-2.427.465c-1.067.047-1.406.06-4.123.06s-3.056-.01-4.123-.06c-1.064-.05-1.789-.218-2.427-.465a4.9 4.9 0 0 1-1.772-1.153a4.9 4.9 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.012 15.056 2 14.717 2 12s.01-3.056.06-4.122s.217-1.79.465-2.428a4.9 4.9 0 0 1 1.153-1.772A4.9 4.9 0 0 1 5.45 2.525c.637-.248 1.362-.415 2.427-.465C8.945 2.013 9.284 2 12.001 2"
+                />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://discord.gg/X4BZ4jFY" target="_blank">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+              >
+                <g fill="none">
+                  <path
+                    d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"
+                  />
+                  <path
+                    fill="#888888"
+                    d="M15.003 4c.259 0 .584.068.845.132c.91.22 1.989.493 2.755 1.068c.713.535 1.267 1.468 1.695 2.416c.89 1.975 1.509 4.608 1.723 6.61c.102.95.127 1.906-.056 2.549c-.09.316-.285.554-.422.7c-.418.443-.956.774-1.488 1.075l-.264.149a25 25 0 0 1-.525.284l-.522.27l-.717.357l-.577.284a1 1 0 0 1-1.166-1.59l-.434-.868A13 13 0 0 1 12 18c-1.37 0-2.677-.2-3.85-.564l-.433.866a1 1 0 0 1-1.164 1.592l-.544-.27c-.604-.298-1.208-.596-1.796-.925c-.614-.343-1.265-.708-1.752-1.225a1.74 1.74 0 0 1-.422-.7c-.184-.642-.158-1.597-.057-2.548c.214-2.002.833-4.635 1.724-6.61c.427-.948.981-1.881 1.694-2.416c.766-.575 1.845-.848 2.755-1.068C8.416 4.068 8.74 4 9 4a1 1 0 0 1 .99 1.147A14 14 0 0 1 12 5c.691 0 1.366.05 2.014.148A1 1 0 0 1 15.004 4Zm1.354 2.363c-.15-.048-.186-.027-.24.063l-.062.112a1.515 1.515 0 0 1-1.635.716A11.4 11.4 0 0 0 12 7c-.852 0-1.667.09-2.42.254a1.515 1.515 0 0 1-1.635-.716l-.062-.111c-.053-.09-.089-.111-.238-.064c-.356.113-.738.234-1.045.437c-.287.215-.67.75-1.071 1.639c-.766 1.697-1.366 4.204-1.558 6q-.06.57-.066.972v.294q.007.267.035.422c.254.248.568.443.883.622l.682.377l.446.235l.364-.728a1 1 0 0 1 1.133-1.624C8.664 15.62 10.246 16 12 16s3.336-.382 4.552-.99a1 1 0 0 1 1.213 1.538l-.08.085l.364.73q.447-.233.897-.483c.39-.216.8-.443 1.117-.753q.027-.155.035-.422v-.294a11 11 0 0 0-.066-.973c-.192-1.795-.792-4.302-1.558-6c-.4-.888-.784-1.423-1.07-1.638c-.308-.203-.69-.324-1.047-.437M8.75 10.5a1.75 1.75 0 1 1 0 3.5a1.75 1.75 0 0 1 0-3.5m6.5 0a1.75 1.75 0 1 1 0 3.5a1.75 1.75 0 0 1 0-3.5"
+                  />
+                </g>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/habbo" target="_blank">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="none"
+                  stroke="#888888"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M17 2h-3a5 5 0 0 0-5 5v3H6v4h3   v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                />
+              </svg>
+            </a>
+          </li>
+        </ul>
+        <p>© Tous droits réservés.</p>
+      </div>
     </div>
-</body>
+
+    <!-- <script>
+      // JavaScript pour gérer l'ouverture et la fermeture de la popup
+      document
+        .getElementById("open-popup")
+        .addEventListener("click", function () {
+          document.getElementById("popup").classList.add("active");
+          document.getElementById("popup-overlay").classList.add("active");
+        });
+
+      document
+        .getElementById("close-popup")
+        .addEventListener("click", function () {
+          document.getElementById("popup").classList.remove("active");
+          document.getElementById("popup-overlay").classList.remove("active");
+        });
+
+      document
+        .getElementById("popup-overlay")
+        .addEventListener("click", function () {
+          document.getElementById("popup").classList.remove("active");
+          document.getElementById("popup-overlay").classList.remove("active");
+        });
+    </script> -->
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        fetch('./assets/particlesjs-config.json')
+          .then(response => response.json())
+          .then(config => {
+            particlesJS('particles-js', config);
+          })
+          .catch(error => console.error('Erreur de chargement de la configuration:', error));
+      </script>
+  </body>
 </html>

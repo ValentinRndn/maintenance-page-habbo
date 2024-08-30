@@ -13,7 +13,8 @@ body {
     margin: 0;
     background-color: #1a1a1a;
     overflow: hidden;
-    position: relative; /* Important pour le positionnement absolu */
+    position: relative; 
+
 }
 
 body::before {
@@ -35,20 +36,37 @@ body::before {
 }
 
 
-/*  */
-#socials img {
+.header {
     position: fixed;
-    top: 2em;
-    right: 2em;
-    border: solid 3px black;
-    border-radius: 50%;
-    background-color: #EC7C16;
-    width: 60px;
-    height:60px;
-    object-fit: contain;
-    animation: fadeInTopRight 1.5s ease-out;
+    top: 0;
+    width: 100%;
+    height: 17vh;
+    object-fit: cover;
+    z-index: 2; 
+    filter: blur(1px);
+    box-shadow: black 0px 0px 20px;
+    background-image: 
+      linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 1));
+      animation: fadeInCenter 1s ease-out; 
 }
 
+
+#login {
+    position:  absolute;
+    top: 2.8rem;
+    right: 4rem;
+    z-index: 15; 
+    animation: fadeInTopRight 1s ease-out;
+}
+
+#login:hover {
+    cursor: pointer;
+}
+
+
+#socials {
+    position: fixed;
+}   
 
 
 #container {
@@ -56,27 +74,62 @@ body::before {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    text-align: center;
+    height: 80vh;
     width: 100%;
-    z-index: 1; /* Assure que le contenu reste au-dessus du fond */
+    z-index: 1; 
 }
 
 
 
 #container h1{
-    font-size: 3em;
-    margin-top: -2em;
+    font-size: 2.5em;
 }
 
-#logo-habbo {
-    width: 30em;
-    object-fit: cover;
-    animation: fadeInCenter 1.5s ease-out; /* Animation du container */
+#container img {
+    margin-bottom: 3rem;
+    animation: fadeInCenter 1.5s ease-out; 
+}
+h1, #container p {
+    animation: fadeInText 2s ease-out; 
+}
+
+.footer {
+    background-image: 
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1));
+    width: 100%;
+    height: 17vh;
+    z-index: 10; 
+    position: fixed;
+    bottom: 0;
+    box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.6);
+    animation: fadeInCenter 1s ease-out; 
+}
+
+.footer ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-top: 40px;
 
 }
-h1, p {
-    animation: fadeInText 2s ease-out; /* Animation des textes */
+
+.footer li {
+    list-style: none;
+    margin: 0 1em;
 }
+.footer p {
+    font-size: 1em; 
+    text-align: center; 
+    position: fixed; 
+    left: 50%; 
+    bottom: 0; 
+    transform: translateX(-50%);
+    color: #888888;
+    margin-bottom: 5px;
+}
+
 
 /* ANIMATION CHARGEMENT */
 /* Animation de fondu pour le contenu */
@@ -114,3 +167,103 @@ h1, p {
         transform: translateY(0) translateX(0);
     }
 }
+
+
+.footer li a:hover svg, #login:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+}
+
+#container img {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Pour que les particules soient en arrière-plan */
+  }
+  
+
+
+
+      /* Styles pour la popup
+       .popup {
+        display: none; 
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        background-color: rgb(11, 11, 11);
+        z-index: 1000;
+        border-radius: 8px;
+        color: black;
+        }
+
+        #staff-login-form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .popup input {
+            padding: 0.5rem;
+            border-radius: 5px;
+            border: none;
+            color: black;
+        }
+        .popup.active {
+        display: block; 
+    }
+    .popup-overlay {
+        display: none; 
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        color: black;
+
+    }
+    .popup-overlay.active {
+        display: block; 
+    }
+    .popup button.close {
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        color: white;
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+
+    .popup button {
+        padding: 0.5rem;
+        border-radius: 5px;
+        border: none;
+        color: black;
+        background-color: #f1f1f1;
+        font-weight: bold;
+        font-size: 1rem;
+        cursor: pointer;
+    }
